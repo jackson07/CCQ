@@ -1,29 +1,16 @@
 {
   "todos": [
     {
-      "id": "65a73dd9-74fc-413f-a014-7297c0209686",
-      "date": "2023-06-15T00:06:14.905Z",
-      "content": "Ummmm",
+      "id": "cc0f6cc8-da1e-4a96-953d-5ea0d68568ee",
+      "date": "2023-06-15T00:40:24.442Z",
+      "content": "Primeira TODO",
       "done": false
     },
     {
-      "id": "41f28e37-062f-4f4b-8d6f-b49fc965753b",
-      "date": "2023-06-15T00:06:14.906Z",
-      "content": "Doissss",
-      "done": false
-    },
-    {
-      "id": "a730884c-af6e-4584-a55a-3fd32480bae7",
-      "date": "2023-06-15T00:06:14.907Z",
-      "content": "Att",
-      "done": false
-    },
-    {
-      "id": "34b82eb3-3a17-4ae7-b278-585439e29cb4",
-      "date": "2023-06-15T00:06:14.908Z",
-      "content": "Quatro",
+      "id": "b613cb54-f5b3-4a71-bdb9-f12507a42782",
+      "date": "2023-06-15T00:40:24.445Z",
+      "content": "Atualizada",
       "done": false
     }
-  ],
-  "dogs": []
+  ]
 }
