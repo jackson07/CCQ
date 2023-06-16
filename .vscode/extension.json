@@ -1,0 +1,6 @@
+{
+    "recomendations": [
+        "EditorConfig.EditorConfig",
+        "dbaeumer.vscode-eslint"
+    ]
+}
