@@ -21,6 +21,8 @@
     "baseUrl": ".",
     "paths": {
       "@ui/*": ["src/ui/*"],
+      "@db-crud-todo": ["core/crud.ts"],
+      "@server/*": ["src/server/*"]
     },
     "plugins": [
       {
