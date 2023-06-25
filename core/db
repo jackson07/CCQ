@@ -4,12 +4,24 @@
       "id": "9e08e7b7-3bfe-4290-b76c-faf6046a2150",
       "date": "2023-06-20T01:09:49.197Z",
       "content": "Primeira TODO",
-      "done": false
+      "done": true
     },
     {
       "id": "40900407-6848-4660-ac3e-1eec08348e98",
       "date": "2023-06-20T01:09:49.199Z",
       "content": "Atualizada",
+      "done": false
+    },
+    {
+      "id": "40900407-6848-4660-ac3e-1eec08348e98",
+      "date": "2023-06-20T01:09:49.199Z",
+      "content": "Terc",
+      "done": false
+    },
+    {
+      "id": "40900407-6848-4660-ac3e-1eec08348e98",
+      "date": "2023-06-20T01:09:49.199Z",
+      "content": "Quart",
       "done": false
     }
   ]

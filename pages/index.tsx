@@ -7,14 +7,16 @@ const bg = "/bg.jpeg"; // inside public folder
 interface HomeTodo {
     id: string;
     content: string;
+    done: boolean;
 }
 
 function HomePage() {
+    const [page, setPage] = useState(1);
     const [todos, setTodos] = useState<HomeTodo[]>([]);
 
     //load infos on load
     React.useEffect(() => {
-        todoController.get().then((todos) => {
+        todoController.get({ page }).then(({ todos }) => {
             setTodos(todos);
         });
     }, []);
@@ -63,7 +65,10 @@ function HomePage() {
                             return (
                                 <tr key={currentTodo.id}>
                                     <td>
-                                        <input type="checkbox" />
+                                        <input
+                                            type="checkbox"
+                                            checked={currentTodo.done}
+                                        />
                                     </td>
                                     <td>{currentTodo.id.substring(0, 4)}</td>
                                     <td>{currentTodo.content}</td>
@@ -90,7 +95,7 @@ function HomePage() {
                             <td colSpan={4} align="center">
                                 Nenhum item encontrado
                             </td>
-                        </tr>
+                        </tr> */}
 
                         <tr>
                             <td
@@ -98,8 +103,11 @@ function HomePage() {
                                 align="center"
                                 style={{ textAlign: "center" }}
                             >
-                                <button data-type="load-more">
-                                    Carregar mais{" "}
+                                <button
+                                    data-type="load-more"
+                                    onClick={() => setPage(page + 1)}
+                                >
+                                    Pág. {page} Carregar mais{" "}
                                     <span
                                         style={{
                                             display: "inline-block",
@@ -111,7 +119,7 @@ function HomePage() {
                                     </span>
                                 </button>
                             </td>
-                        </tr> */}
+                        </tr>
                     </tbody>
                 </table>
             </section>
