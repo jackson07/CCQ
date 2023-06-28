@@ -11,15 +11,21 @@ interface HomeTodo {
 }
 
 function HomePage() {
-    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = React.useState(0);
+    const [page, setPage] = React.useState(1);
     const [todos, setTodos] = useState<HomeTodo[]>([]);
+
+    const hasMorePages = totalPages > page;
 
     //load infos on load
     React.useEffect(() => {
-        todoController.get({ page }).then(({ todos }) => {
-            setTodos(todos);
+        todoController.get({ page }).then(({ todos, pages }) => {
+            setTodos((oldTodos) => {
+                return [...oldTodos, ...todos];
+            });
+            setTotalPages(pages);
         });
-    }, []);
+    }, [page]);
 
     return (
         <main>
@@ -54,7 +60,7 @@ function HomePage() {
                             <th align="left">
                                 <input type="checkbox" disabled />
                             </th>
-                            <th align="left">Id</th>
+                            <th align="left">ID</th>
                             <th align="left">Conteúdo</th>
                             <th />
                         </tr>
@@ -67,7 +73,7 @@ function HomePage() {
                                     <td>
                                         <input
                                             type="checkbox"
-                                            checked={currentTodo.done}
+                                            defaultChecked={currentTodo.done}
                                         />
                                     </td>
                                     <td>{currentTodo.id.substring(0, 4)}</td>
@@ -97,29 +103,31 @@ function HomePage() {
                             </td>
                         </tr> */}
 
-                        <tr>
-                            <td
-                                colSpan={4}
-                                align="center"
-                                style={{ textAlign: "center" }}
-                            >
-                                <button
-                                    data-type="load-more"
-                                    onClick={() => setPage(page + 1)}
+                        {hasMorePages && (
+                            <tr>
+                                <td
+                                    colSpan={4}
+                                    align="center"
+                                    style={{ textAlign: "center" }}
                                 >
-                                    Pág. {page} Carregar mais{" "}
-                                    <span
-                                        style={{
-                                            display: "inline-block",
-                                            marginLeft: "4px",
-                                            fontSize: "1.2em",
-                                        }}
+                                    <button
+                                        data-type="load-more"
+                                        onClick={() => setPage(page + 1)}
                                     >
-                                        ↓
-                                    </span>
-                                </button>
-                            </td>
-                        </tr>
+                                        Pág. {page} Carregar mais{" "}
+                                        <span
+                                            style={{
+                                                display: "inline-block",
+                                                marginLeft: "4px",
+                                                fontSize: "1.2em",
+                                            }}
+                                        >
+                                            ↓
+                                        </span>
+                                    </button>
+                                </td>
+                            </tr>
+                        )}
                     </tbody>
                 </table>
             </section>
