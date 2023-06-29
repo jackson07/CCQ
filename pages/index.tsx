@@ -11,19 +11,23 @@ interface HomeTodo {
 }
 
 function HomePage() {
-    const [initialLoadComplete, setInitialLoadComplete] = React.useState(false);
+    const initialLoadComplete = React.useRef(false);
     const [totalPages, setTotalPages] = React.useState(0);
     const [page, setPage] = React.useState(1);
+    const [search, setSearch] = React.useState("");
     const [isLoading, setIsLoading] = React.useState(true);
     const [todos, setTodos] = useState<HomeTodo[]>([]);
+    const homeTodos = todoController.filterTodosByContent<HomeTodo>(
+        search,
+        todos
+    );
 
     const hasMorePages = totalPages > page;
-    const hasNoTodos = todos.length === 0 && !setIsLoading;
+    const hasNoTodos = homeTodos.length === 0 && !setIsLoading;
 
     //load infos on load
     React.useEffect(() => {
-        setInitialLoadComplete(true);
-        if (!initialLoadComplete) {
+        if (!initialLoadComplete.current) {
             todoController
                 .get({ page })
                 .then(({ todos, pages }) => {
@@ -32,6 +36,7 @@ function HomePage() {
                 })
                 .finally(() => {
                     setIsLoading(false);
+                    initialLoadComplete.current = true;
                 });
         }
     }, [page]);
@@ -60,6 +65,10 @@ function HomePage() {
                     <input
                         type="text"
                         placeholder="Filtrar  lista atual, ex: Dentista"
+                        value={search}
+                        onChange={function handleSearch(event) {
+                            setSearch(event.target.value);
+                        }}
                     />
                 </form>
 
@@ -76,7 +85,7 @@ function HomePage() {
                     </thead>
 
                     <tbody>
-                        {todos.map((currentTodo) => {
+                        {homeTodos.map((currentTodo) => {
                             return (
                                 <tr key={currentTodo.id}>
                                     <td>

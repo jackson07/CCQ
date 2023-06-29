@@ -13,7 +13,7 @@ interface Todo {
     done: boolean;
 }
 
-function create(content: string): Todo {
+export function create(content: string): Todo {
     const todo: Todo = {
         id: uuidv4(),
         date: new Date().toISOString(),
