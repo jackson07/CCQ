@@ -17,10 +17,6 @@ const QueryPageSchema = schema.object({
         }),
 });
 
-const TodoCreateBodySchema = schema.object({
-    content: schema.string(),
-});
-
 async function get(req: NextApiRequest, res: NextApiResponse) {
     const query = req.query;
     const parsedQuery = QueryPageSchema.safeParse(query);
@@ -49,6 +45,9 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
     });
 }
 
+const TodoCreateBodySchema = schema.object({
+    content: schema.string(),
+});
 async function create(req: NextApiRequest, res: NextApiResponse) {
     const body = TodoCreateBodySchema.safeParse(req.body);
 
