@@ -1,3 +1,6 @@
+import { z as schema } from "zod";
+import { Todo, TodoSchema } from "@ui/schema/todo";
+
 interface TodoRepositoryGetParams {
     page: number;
     limit: number;
@@ -28,17 +31,47 @@ function get({
     );
 }
 
+async function createByContent(content: string): Promise<Todo> {
+    const response = await fetch("/api/todos", {
+        method: "POST",
+        headers: {
+            //MIME Type
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ content }),
+    });
+
+    if (response.ok) {
+        const serverResponse = await response.json();
+        const ServerResponseSchema = schema.object({
+            todo: TodoSchema,
+        });
+
+        const serverResponseParsed =
+            ServerResponseSchema.safeParse(serverResponse);
+        if (!serverResponseParsed.success) {
+            throw new Error("Failed to create TODO :(");
+        }
+
+        const todo = serverResponseParsed.data.todo;
+        return todo;
+    }
+
+    throw new Error("Failed to create TODO :(");
+}
+
 export const todoRepository = {
     get,
+    createByContent,
 };
 
-// Model
-interface Todo {
-    id: string;
-    content: string;
-    data: Date;
-    done: boolean;
-}
+// // Model
+// interface Todo {
+//     id: string;
+//     content: string;
+//     date: Date;
+//     done: boolean;
+// }
 
 function parseTodosFromServer(responseBody: unknown): {
     total: number;
@@ -61,17 +94,17 @@ function parseTodosFromServer(responseBody: unknown): {
                     throw new Error("Invalid todo from API");
                 }
 
-                const { id, content, data, done } = todo as {
+                const { id, content, date, done } = todo as {
                     id: string;
                     content: string;
-                    data: string;
+                    date: string;
                     done: string;
                 };
 
                 return {
                     id,
                     content,
-                    data: new Date(data),
+                    date: date,
                     done: String(done).toLowerCase() === "true",
                 };
             }),
