@@ -1,17 +1,9 @@
 import { z as schema } from "zod";
 
-// // Model
-// interface Todo {
-//     id: string;
-//     content: string;
-//     data: Date;
-//     done: boolean;
-// }
-
 export const TodoSchema = schema.object({
-    id: schema.string(),
+    id: schema.string().uuid(),
     content: schema.string(),
-    date: schema.string(),
+    date: schema.string().datetime(),
     done: schema.boolean(),
 });
 
