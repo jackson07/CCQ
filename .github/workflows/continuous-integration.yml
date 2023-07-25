@@ -7,7 +7,7 @@ on:
 
 jobs:
     lint:
-        runs-on: ubunto-latest
+        runs-on: ubuntu-latest
         steps:
             - name: "Lint"
             run: "echo 'aueba aueba'"
