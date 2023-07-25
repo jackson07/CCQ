@@ -1,0 +1,14 @@
+name: "[CI] Continuous Integration"
+
+# Sempre que tiver um commit ou um PR for aberto
+on:
+    pull_request:
+        types: [opened, synchronize]
+
+jobs:
+    lint:
+        runs-on: ubunto-latest
+        steps:
+            - name: "Lint"
+            run: "echo 'aueba aueba'"
+ 
