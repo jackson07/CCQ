@@ -9,6 +9,11 @@ jobs:
     lint:
         runs-on: ubuntu-latest
         steps:
+            ## [common_CI_Steps]
+            - uses: actions/checkout@v3
+            ## =================
+            - name: "Debug"
+              run: "ls -la"
             - name: "Lint"
-              run: "echo 'aueba aueba'"
+              run: "npm run lint"
  
