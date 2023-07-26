@@ -20,13 +20,3 @@ jobs:
         run: "npm install"
       - name: "Lint"
         run: "npm run lint"
-=======
-    pull_request:
-        types: [opened, synchronize]
-
-jobs:
-    lint:
-        runs-on: ubunto-latest
-        steps:
-            - name: "Lint"
-            run: "echo 'aueba aueba'"
