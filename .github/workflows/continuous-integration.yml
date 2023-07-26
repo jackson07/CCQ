@@ -5,7 +5,7 @@ on:
   pull_request:
     types: [opened, synchronize]
 
-jobs: 
+jobs:
   lint: 
     runs-on: ubuntu-latest
     steps:
