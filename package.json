@@ -1,7 +1,7 @@
 {
   "name": "ccq",
   "version": "1.0.0",
-  "description": "Projeto criando um crud.",
+  "description": "Projeto criando um CRUD.",
   "main": "index.js",
   "scripts": {
     "start:crud": "npx ts-node ./core/crud.ts",
