@@ -22,12 +22,12 @@ jobs:
         run: "npm run lint"
   test:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node16.16.0-chrome107-ff107-edge
-    steps: 
+    container: cypress/browsers:node18.12.0-chrome107
+    steps:
       ## [Common_CI_Steps]
       - uses: actions/checkout@v3
       ## =================
       - name: "Install Dependencies"
         run: "npm install"
-      - name: "Lint"
+      - name: "Test - Cypress"
         run: "npm run test"
