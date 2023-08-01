@@ -22,5 +22,6 @@ describe("/ - Todos Feed", () => {
         cy.get("input[name='add-todo']").type("Test todo");
         cy.get("[aria-label='Adicionar novo item']").click();
         cy.get("table > tbody").contains("Test todo");
+        expect("texto").to.be.equal("texto");
     });
 });
