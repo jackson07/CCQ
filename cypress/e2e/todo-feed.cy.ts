@@ -1,6 +1,5 @@
 describe("/ - Todos Feed", () => {
     const base_URL = "http://localhost:3000";
-
     it("when load, renders the page,", () => {
         cy.visit(base_URL);
     });
