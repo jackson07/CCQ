@@ -1,12 +1,13 @@
-describe("/ - Todos Feed", () => {
-    const base_URL = "http://localhost:3000";
+const base_URL = "http://localhost:3000";
 
+describe("/ - Todos Feed", () => {
     it("when load, renders the page,", () => {
         cy.visit(base_URL);
     });
-    it("when crate a new todo, it must appers in the creen", () => {
-        cy.intercept("POST", `${base_URL}/api/todos`, (req) => {
-            req.reply({
+    
+    it("when crate a new todo, it must appers in the screen", () => {
+        cy.intercept("POST", `${base_URL}/api/todos`, (request) => {
+            request.reply({
                 statusCode: 201,
                 body: {
                     todo: {
