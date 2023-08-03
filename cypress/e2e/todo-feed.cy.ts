@@ -10,9 +10,9 @@ describe("/ - Todos Feed", () => {
             request.reply({
                 statusCode: 201,
                 body: {
-                    todo: {
-                        id: "70905d7e-c969-45b1-99f0-1aa155477204",
-                        date: "2023-04-15T19:46:51.109Z",
+                    todos: {
+                        id: "23458947-856f-469d-83e3-75e66f6ce6hg",
+                        date: "2023-08-01T15:35:14.676Z",
                         content: "Test todo",
                         done: false,
                     },
@@ -21,12 +21,10 @@ describe("/ - Todos Feed", () => {
         }).as("createTodo");
 
         cy.visit(BASE_URL);
-        const inputAddTodo = "input[name='add-todo']";
-        cy.get(inputAddTodo).type("Test todo");
-        const buttonAddTodo = "[aria-label='Adicionar novo item']";
-        cy.get(buttonAddTodo).click();
+        cy.get("input[name='add-todo']").type("Test todo");
+        cy.get("[aria-label='Adicionar novo item']").click();
 
-        cy.get("table > tbody").contains("Test todo");
+        cy.get("table > tbody").contains("Dar ração e brincar com o gato");
 
         expect("texto").to.be.equal("texto");
     });

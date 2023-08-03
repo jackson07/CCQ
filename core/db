@@ -4,56 +4,7 @@
       "id": "0dac397c-af67-4028-a4f6-1f664e65aac4",
       "date": "2023-07-14T01:33:13.636Z",
       "content": "Dar ração e brincar com o gato",
-      "done": true
-    },
-    {
-      "id": "8ad13aee-3215-456f-a476-76f82c0e74f8",
-      "date": "2023-07-14T01:33:22.448Z",
-      "content": "Se arrumar para o trabalho e tomar café",
-      "done": true
-    },
-    {
-      "id": "c5f9e5eb-4b70-49f7-9743-b68ea72845c0",
-      "date": "2023-07-14T01:33:39.930Z",
-      "content": "Prepara o que levar ao trabalho",
-      "done": false
-    },
-    {
-      "id": "bb05a197-4701-410f-8188-9b8f7e271764",
-      "date": "2023-07-14T01:33:45.777Z",
-      "content": "Ir para o Trabalho",
-      "done": false
-    },
-    {
-      "id": "a0eb33cf-297e-4e89-aee2-f26188c2c7b4",
-      "date": "2023-07-14T01:34:07.852Z",
-      "content": "Café da tarde ao voltar do trabalho",
-      "done": false
-    },
-    {
-      "id": "c877c767-3b22-4501-8673-f7a8b22a4b28",
-      "date": "2023-07-14T01:34:21.972Z",
-      "content": "Estudar no período da noite",
-      "done": false
-    },
-    {
-      "id": "01f470f1-cff7-4622-8b25-156361d709e7",
-      "date": "2023-07-24T23:36:08.512Z",
-      "content": "correr",
-      "done": false
-    },
-    {
-      "id": "4db2430e-2337-4705-a3b1-72a62f801bac",
-      "date": "2023-07-24T23:36:10.502Z",
-      "content": "estudar",
-      "done": true
-    },
-    {
-      "id": "f78a6e03-963b-469d-83e3-75e66f6ce8ee",
-      "date": "2023-08-01T15:35:14.676Z",
-      "content": "correr",
       "done": false
     }
-  ],
-  "dogs": []
+  ]
 }
