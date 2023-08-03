@@ -1,16 +1,18 @@
+const BASE_URL = "http://localhost:3000";
+
 describe("/ - Todos Feed", () => {
-    const base_URL = "http://localhost:3000";
-    it("when load, renders the page,", () => {
-        cy.visit(base_URL);
+    it("when load, renders the page", () => {
+        cy.visit(BASE_URL);
     });
-    it("when crate a new todo, it must appers in the creen", () => {
-        cy.intercept("POST", `${base_URL}/api/todos`, (req) => {
-            req.reply({
+    it("when create a new todo, it must appears in the screen", () => {
+        // 0 - Interceptações/Intertecptação
+        cy.intercept("POST", `${BASE_URL}/api/todos`, (request) => {
+            request.reply({
                 statusCode: 201,
                 body: {
                     todo: {
-                        id: "0dac397c-af67-4028-a4f6-1f664e65aac4",
-                        date: "2023-07-14T01:33:13.636Z",
+                        id: "70905d7e-c969-45b1-99f0-1aa155477204",
+                        date: "2023-04-15T19:46:51.109Z",
                         content: "Test todo",
                         done: false,
                     },
@@ -18,9 +20,14 @@ describe("/ - Todos Feed", () => {
             });
         }).as("createTodo");
 
-        cy.visit(base_URL);
-        cy.get("input[name='add-todo']").type("Test todo");
-        cy.get("[aria-label='Adicionar novo item']").click();
+        cy.visit(BASE_URL);
+        const inputAddTodo = "input[name='add-todo']";
+        cy.get(inputAddTodo).type("Test todo");
+        const buttonAddTodo = "[aria-label='Adicionar novo item']";
+        cy.get(buttonAddTodo).click();
+
         cy.get("table > tbody").contains("Test todo");
+
+        expect("texto").to.be.equal("texto");
     });
 });
