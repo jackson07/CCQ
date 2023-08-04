@@ -6,13 +6,13 @@ describe("/ - Todos Feed", () => {
     });
     it("when create a new todo, it must appears in the screen", () => {
         // 0 - Interceptações/Intertecptação
-        cy.intercept("POST", `${BASE_URL}/api/todos`, (request) => {
-            request.reply({
+        cy.intercept("POST", `${BASE_URL}/api/todos`, (req) => {
+            req.reply({
                 statusCode: 201,
                 body: {
-                    todos: {
-                        id: "23458947-856f-469d-83e3-75e66f6ce6hg",
-                        date: "2023-08-01T15:35:14.676Z",
+                    todo: {
+                        id: "0dac397c-af67-4028-a4f6-1f664e65aac4",
+                        date: "2022-02-01T16:38:19.126Z",
                         content: "Test todo",
                         done: false,
                     },
@@ -24,7 +24,7 @@ describe("/ - Todos Feed", () => {
         cy.get("input[name='add-todo']").type("Test todo");
         cy.get("[aria-label='Adicionar novo item']").click();
 
-        cy.get("table > tbody").contains("Dar ração e brincar com o gato");
+        cy.get("table > tbody").contains("Test todo");
 
         expect("texto").to.be.equal("texto");
     });

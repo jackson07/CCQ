@@ -38,7 +38,6 @@ async function create({
         onError("Todo sem conteúdo");
         return;
     }
-
     todoRepository
         .createByContent(parsedParams.data)
         .then((newTodo) => {

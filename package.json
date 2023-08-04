@@ -13,7 +13,7 @@
         "lint:fix": "npm run lint -- --fix",
         "cy:open": "cypress open",
         "cy:run": "cypress run",
-        "test": "start-server-and-test dev http://localhost:3000 cy:run"
+        "test": "concurrently \"npm:dev\" \"npm:cy:run\" -k"
     },
     "keywords": [],
     "author": "",
@@ -24,6 +24,7 @@
         "@types/uuid": "^9.0.2",
         "@typescript-eslint/eslint-plugin": "^6.2.0",
         "@typescript-eslint/parser": "^6.2.0",
+        "concurrently": "^8.2.0",
         "cypress": "^12.17.2",
         "eslint": "^8.36.0",
         "eslint-config-prettier": "^8.8.0",
@@ -36,8 +37,7 @@
         "eslint-plugin-promise": "^6.1.1",
         "eslint-plugin-react": "^7.33.1",
         "nodemon": "^2.0.22",
-        "prettier": "^2.8.7",
-        "start-server-and-test": "^2.0.0"
+        "prettier": "^2.8.7"
     },
     "dependencies": {
         "next": "^13.4.6",
