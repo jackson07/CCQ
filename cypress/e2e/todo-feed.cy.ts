@@ -11,8 +11,8 @@ describe("/ - Todos Feed", () => {
                 statusCode: 201,
                 body: {
                     todo: {
-                        id: "0dac397c-af67-4028-a4f6-1f664e65aac4",
-                        date: "2022-02-01T16:38:19.126Z",
+                        id: "70905d7e-c969-45b1-99f0-1aa155477204",
+                        date: "2023-04-15T19:46:51.109Z",
                         content: "Test todo",
                         done: false,
                     },
@@ -21,10 +21,10 @@ describe("/ - Todos Feed", () => {
         }).as("createTodo");
 
         cy.visit(BASE_URL);
-        cy.get("input[name='add-todo']").type("Test todo");
+        cy.get("input[name='add-todo']").type("Correr");
         cy.get("[aria-label='Adicionar novo item']").click();
 
-        cy.get("table > tbody").contains("Test todo");
+        cy.get("table > tbody").contains("Correr");
 
         expect("texto").to.be.equal("texto");
     });
