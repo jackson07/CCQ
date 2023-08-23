@@ -37,7 +37,10 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
     const { page, limit } = parsedQuery.data;
     const parsedPage = page ? Number(page) : undefined;
     const parsedLimit = limit ? Number(limit) : undefined;
-    const output = todoRepository.get({ page: parsedPage, limit: parsedLimit });
+    const output = await todoRepository.get({
+        page: parsedPage,
+        limit: parsedLimit,
+    });
 
     res.status(200).json({
         total: output.total,

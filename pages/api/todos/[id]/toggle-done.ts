@@ -1,9 +1,12 @@
 import { todoController } from "@server/controller/todo";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export default function (request: NextApiRequest, response: NextApiResponse) {
+export default async function (
+    request: NextApiRequest,
+    response: NextApiResponse
+) {
     if (request.method === "PUT") {
-        todoController.toggleDone(request, response);
+        await todoController.toggleDone(request, response);
         return;
     }
 
