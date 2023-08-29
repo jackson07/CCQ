@@ -1,14 +1,14 @@
 name: "[CD] Continuous Delivery"
 
 # Sempre que tiver um commit ou um PR for aberto
-#on: 
-#  push:
-#    branches: [ main ]
+# on:
+#   push:
+#     branches: [ main ]
 on:
   pull_request:
     types: [opened, synchronize]
-
-jobs:
+    
+jobs: 
   deploy: 
     runs-on: ubuntu-latest
     steps:
@@ -20,5 +20,5 @@ jobs:
           ls -la
       - name: "Install Dependencies"
         run: "npm install"
-      - name: "Lint"
+      - name: "Deploy"
         run: "npx vercel --prod"
