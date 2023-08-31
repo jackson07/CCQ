@@ -5,7 +5,6 @@ describe("/ - Todos Feed", () => {
         cy.visit(BASE_URL);
     });
     it("when create a new todo, it must appears in the screen", () => {
-        cy.visit(BASE_URL);
         // 0 - Interceptações/Intertecptação
         cy.intercept("POST", `${BASE_URL}/api/todos`, (request) => {
             request.reply({
@@ -20,6 +19,8 @@ describe("/ - Todos Feed", () => {
                 },
             });
         }).as("createTodo");
+
+        cy.visit(BASE_URL);
 
         cy.get("input[name='add-todo']").type("Jantar");
         cy.get("[aria-label='Adicionar novo item']").click();
