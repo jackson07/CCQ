@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://crudcomqualidade-iota.vercel.app";
 
 describe("/ - Todos Feed", () => {
     it("when load, renders the page", () => {
