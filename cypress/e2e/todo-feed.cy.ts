@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://crudcomqualidade-iota.vercel.app";
 
 describe("/ - Todos Feed", () => {
     it("when load, renders the page", () => {
@@ -13,7 +13,7 @@ describe("/ - Todos Feed", () => {
                     todos: {
                         id: "23458947-856f-469d-83e3-75e66f6ce6hg",
                         date: "2023-08-01T15:35:14.676Z",
-                        content: "Test todo",
+                        content: "Test TODO wewe",
                         done: false,
                     },
                 },
@@ -21,10 +21,11 @@ describe("/ - Todos Feed", () => {
         }).as("createTodo");
 
         cy.visit(BASE_URL);
-        cy.get("input[name='add-todo']").type("Test todo");
+
+        cy.get("input[name='add-todo']").type("Test TODO wewe");
         cy.get("[aria-label='Adicionar novo item']").click();
 
-        cy.get("table > tbody").contains("Dar ração e brincar com o gato");
+        cy.get("table > tbody").contains("Test TODO wewe");
 
         expect("texto").to.be.equal("texto");
     });
