@@ -13,7 +13,7 @@ describe("/ - Todos Feed", () => {
                     todos: {
                         id: "23458947-856f-469d-83e3-75e66f6ce6hg",
                         date: "2023-08-01T15:35:14.676Z",
-                        content: "Jantar",
+                        content: "Test TODO wewe",
                         done: false,
                     },
                 },
@@ -22,10 +22,10 @@ describe("/ - Todos Feed", () => {
 
         cy.visit(BASE_URL);
 
-        cy.get("input[name='add-todo']").type("Jantar");
+        cy.get("input[name='add-todo']").type("Test TODO wewe");
         cy.get("[aria-label='Adicionar novo item']").click();
 
-        cy.get("table > tbody").contains("Jantar");
+        cy.get("table > tbody").contains("Test TODO wewe");
 
         expect("texto").to.be.equal("texto");
     });
