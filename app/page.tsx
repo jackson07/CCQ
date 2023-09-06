@@ -83,7 +83,11 @@ function HomePage() {
                             setNewTodoContent(event.target.value);
                         }}
                     />
-                    <button type="submit" aria-label="Adicionar novo item">
+                    <button
+                        type="submit"
+                        aria-label="Adicionar novo item"
+                        name="addButton"
+                    >
                         +
                     </button>
                 </form>
