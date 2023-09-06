@@ -24,7 +24,6 @@ describe("/ - Todos Feed", () => {
 
         cy.get("input[name='add-todo']").type("Test TODO wewe");
         cy.get("[aria-label='Adicionar novo item']").click();
-        cy.wait("5000");
         cy.get("table > tbody").contains("Test TODO wewe");
 
         expect("texto").to.be.equal("texto");
