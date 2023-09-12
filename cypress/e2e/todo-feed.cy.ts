@@ -9,10 +9,10 @@ describe("/ - Todos Feed", () => {
             request.reply({
                 statusCode: 201,
                 body: {
-                    todos: {
+                    todo: {
                         id: "d78c96b8-89ee-452f-b7f8-6495b57ebd4f",
                         date: "2023-08-01T15:35:14.676Z",
-                        content: "Test",
+                        content: "Test todo",
                         done: false,
                     },
                 },
@@ -21,10 +21,10 @@ describe("/ - Todos Feed", () => {
 
         cy.visit(BASE_URL);
 
-        cy.get("input[name='add-todo']").type("Test");
-        cy.get("button[name='addButton']").click();
-        //cy.get("[aria-label=Adicionar novo item']").click();
-        cy.get("table > tbody").contains("Test");
+        cy.get("input[name='add-todo']").type("Test todo");
+        // cy.get("button[name='addButton']").click();
+        cy.get("[aria-label='Adicionar novo item']").click();
+        cy.get("table > tbody").contains("Test todo");
 
         expect("texto").to.be.equal("texto");
     });
