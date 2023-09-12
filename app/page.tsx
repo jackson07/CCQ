@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { GlobalStyles } from "@ui/theme/GlobalStyles";
 import { todoController } from "@ui/controller/todos";
@@ -82,7 +83,11 @@ function HomePage() {
                             setNewTodoContent(event.target.value);
                         }}
                     />
-                    <button type="submit" aria-label="Adicionar novo item">
+                    <button
+                        type="submit"
+                        aria-label="Adicionar novo item"
+                        name="addButton"
+                    >
                         +
                     </button>
                 </form>
